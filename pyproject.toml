@@ -1,0 +1,17 @@
+[project]
+name = "ai-workflow-rag-tutorial"
+version = "0.1.0"
+description = "A simple AI workflow demonstrating RAG with a FastHTML tutor using OpenRouter and Supabase"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "supabase>=2.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.0.0",
+    "jupyter>=1.0.0",
+]
