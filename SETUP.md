@@ -22,14 +22,16 @@ If you are using VS Code :
 git clone https://github.com/tligorio/ai_workflow_rag_tutorial.git
 cd ai_workflow_rag_tutorial
 
-3. Create the Virtual Environment
+3. Create and Sync the Environment
 
-Create a project-local virtual environment using uv:
+Create the project-local `.venv` and install the exact versions recorded in
+`uv.lock`, including Jupyter support:
 
-uv venv
+uv sync --dev
 
 
-Activate it:
+You do not need to activate the environment when using `uv run`. If you prefer
+to activate it, run:
 
 source .venv/bin/activate
 
@@ -39,31 +41,16 @@ On Windows (PowerShell):
 .venv\Scripts\activate
 
 
-4. Install Project Dependencies
+4. Register the Jupyter Kernel
 
-Install the project dependencies defined in pyproject.toml:
+Register the environment as a Jupyter kernel:
 
-uv pip install -e .
-
-
-Do not use pip install -U.
-Version upgrades are managed by uv to keep the environment stable.
-
-5. Install Jupyter Kernel Support
-
-To run notebooks inside this environment, install Jupyter support:
-
-uv pip install ipykernel jupyter
-
-
-Then register the environment as a Jupyter kernel:
-
-python -m ipykernel install \
+uv run python -m ipykernel install \
   --user \
   --name ai-workflow-rag \
-  --display-name "Python (ai-workflow-rag )"
+  --display-name "Python (ai-workflow-rag)"
 
-6. If using VS Code, select the Kernel:
+5. If using VS Code, select the Kernel:
 
 Open AI_Workflow_with_RAG.ipynb
 
@@ -77,8 +64,12 @@ Python (ai-workflow-rag)
 This ensures the notebook runs inside the correct environment.
 
 
-7. Start the Notebook (Terminal Option)
+6. Start the Notebook (Terminal Option)
 
 If you are not using vscode, you may also start Jupyter from the terminal:
 
-jupyter notebook AI_Workflow_with_RAG.ipynb
+uv run jupyter notebook AI_Workflow_with_RAG.ipynb
+
+The notebook's first installation cell is primarily for Google Colab. The uv
+environment already contains those packages, so rerunning that cell locally is
+optional.

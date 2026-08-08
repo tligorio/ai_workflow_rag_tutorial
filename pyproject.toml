@@ -7,6 +7,7 @@ requires-python = ">=3.10"
 dependencies = [
     "openai>=1.0.0",
     "python-dotenv>=1.0.0",
+    "requests>=2.34.2",
     "supabase>=2.0.0",
 ]
 
@@ -14,4 +15,5 @@ dependencies = [
 dev = [
     "ipykernel>=7.0.0",
     "jupyter>=1.0.0",
+    "pip>=26.2.1",
 ]
